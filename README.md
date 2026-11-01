@@ -9,8 +9,9 @@ Website for the [@adi.vibe](https://www.instagram.com/adi.vibe/) Instagram page.
 ## Editing content
 
 All text, numbers and links live in **`config.js`**. Edit that file only.
-The site ships with sample data and a yellow "Sample content" banner;
-replace the samples, then set `draft: false` to remove the banner.
+Any list left empty hides its section. Leave `email` empty to send brands
+to Instagram DMs; set it to show the inquiry form instead.
+Setting `draft: true` shows a "Sample content" banner while you're editing.
 
 ## Running locally
 
