@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>For Brands · adi.vibe</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="brands">
+  <header id="header"></header>
+
+  <main class="wrap">
+    <section class="page-head">
+      <p class="eyebrow">Media kit</p>
+      <h1>Partner with <span data-text="handle"></span></h1>
+      <p class="lede" data-text="bio"></p>
+    </section>
+
+    <section>
+      <div class="stats" id="stats"></div>
+      <p class="muted small" id="stats-updated"></p>
+    </section>
+
+    <section>
+      <h2>Audience</h2>
+      <div class="grid three" id="audience"></div>
+    </section>
+
+    <section>
+      <h2>What I create</h2>
+      <div class="grid three" id="pillars"></div>
+    </section>
+
+    <section>
+      <h2>Packages</h2>
+      <div class="grid three" id="packages"></div>
+    </section>
+
+    <section>
+      <h2>Past collaborations</h2>
+      <div class="grid two" id="collabs"></div>
+      <div class="grid two" id="testimonials"></div>
+    </section>
+
+    <section id="contact">
+      <h2>Start a collaboration</h2>
+      <form class="card form" id="inquiry">
+        <label>Your name<input name="name" required></label>
+        <label>Brand<input name="brand" required></label>
+        <label>Email<input name="email" type="email" required></label>
+        <label>Budget
+          <select name="budget">
+            <option>Not sure yet</option>
+            <option>Under $500</option>
+            <option>$500 – $2,000</option>
+            <option>$2,000+</option>
+          </select>
+        </label>
+        <label class="full">What do you have in mind?<textarea name="message" rows="4" required></textarea></label>
+        <div class="full form-foot">
+          <button class="btn" type="submit">Send inquiry</button>
+          <span class="muted small">Or email <b id="inquiry-email"></b></span>
+        </div>
+        <p class="full muted small" id="inquiry-note" hidden>Your mail app should open with the message ready to send.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer id="footer"></footer>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
