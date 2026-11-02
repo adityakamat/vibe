@@ -28,8 +28,29 @@
       <a class="logo" href="index.html">${esc(S.handle)}<span>·</span></a>
       <div class="nav-links">
         ${nav.map(([href, label, id]) => `<a href="${href}" ${id === page ? 'aria-current="page"' : ""}>${label}</a>`).join("")}
+        <button type="button" class="theme-toggle" id="theme-toggle"></button>
       </div>
     </nav>`);
+
+  // Night mode: follows the system until the visitor picks a side; the choice is
+  // saved and re-applied by the inline script in each page's <head> to avoid a flash.
+  const root = document.documentElement;
+  const isDark = () => root.dataset.theme
+    ? root.dataset.theme === "dark"
+    : matchMedia("(prefers-color-scheme: dark)").matches;
+  const syncToggle = () => {
+    const dark = isDark();
+    const btn = $("#theme-toggle");
+    btn.textContent = dark ? "☀︎" : "☾";
+    btn.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to night mode");
+  };
+  $("#theme-toggle").addEventListener("click", () => {
+    root.dataset.theme = isDark() ? "light" : "dark";
+    try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
+    syncToggle();
+  });
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", syncToggle);
+  syncToggle();
   fill("#footer", `
     <div class="wrap footer-row">
       <span>© ${new Date().getFullYear()} ${esc(S.name)} · ${esc(S.tagline)}</span>

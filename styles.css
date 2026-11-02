@@ -10,8 +10,20 @@
   --radius: 18px;
   color-scheme: light;
 }
+/* Dark theme: follows the system unless the visitor picked one with the toggle */
+:root[data-theme="dark"] {
+  --bg: #07111f;
+  --surface: #0f1d30;
+  --text: #e8eef6;
+  --muted: #93a3b8;
+  --line: #1e2f47;
+  --accent: #3cc6e8;
+  --accent-2: #8b8bff;
+  --accent-soft: #10304a;
+  color-scheme: dark;
+}
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #07111f;
     --surface: #0f1d30;
     --text: #e8eef6;
@@ -54,6 +66,11 @@ main section { margin-block: 56px; }
 .nav-links a { text-decoration: none; padding: 6px 12px; border-radius: 999px; color: var(--muted); }
 .nav-links a:hover { color: var(--text); }
 .nav-links a[aria-current="page"] { background: var(--accent-soft); color: var(--text); }
+.theme-toggle {
+  border: 1.5px solid var(--line); background: transparent; color: var(--text); cursor: pointer;
+  width: 36px; height: 36px; border-radius: 999px; font-size: 1rem; line-height: 1; margin-left: 4px;
+}
+.theme-toggle:hover { border-color: var(--accent); }
 footer { border-top: 1px solid var(--line); margin-top: 80px; color: var(--muted); font-size: .875rem; }
 .footer-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding-block: 24px; }
 
